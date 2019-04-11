@@ -6,10 +6,7 @@ class Counter extends Component {
     incrementIfOdd = () => {
         // Stretch Problem: Implement an increment function that
         // only increments if the counter value is odd
-        
-            if (this.props.count % 2 !== 0) {
-                this.props.increment();
-            }
+        if(this.props.count % 2 != 0) this.props.increment();
     };
 
     incrementAsync = () => {
@@ -25,27 +22,23 @@ class Counter extends Component {
         return (
             <p>
                 Clicked: {this.props.count} times
-                {" "}
-                <button onClick={() => this.props.increment()}>
+                <button onClick={() => { this.props.increment() }}>
                     +
                 </button>
-                {" "}
-                <button onClick={() => this.props.decrement()}>
+                <button onClick={() => { this.props.decrement() }}>
                     -
                 </button>
-                {" "}
+
                 <button onClick={this.incrementIfOdd}>
                     Increment if odd
                 </button>
-                {" "}
                 <button onClick={this.incrementAsync}>
                     Increment async
                 </button>
             </p>
         );
-    
-        };
     }
+}
 
 // The mapStateToProps function specifies which portion of the
 // state tree this component needs to receive. In this case,
@@ -55,7 +48,7 @@ class Counter extends Component {
 // parts it needs from the state object.
 const mapStateToProps = (state) => {
     return {
-        count: state
+        count: state.count
     };
 };
 
